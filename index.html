@@ -22,6 +22,16 @@
         width: 100vw;
         overflow: hidden;
         background-image: radial-gradient(farthest-corner at 5vmin 5vmin, #880b93 0%, #0d0d3a 100%);
+        position: relative;
+    }
+    .container:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23341e58' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     }
     .logo-wrap {
         height: 100vmin;
@@ -30,11 +40,13 @@
         top: -20vmin;
         left: -20vmin;
         opacity: 0.9;
+        z-index: 1;
     }
     #svg2 {
         height: 100%;
         width: 100%;
-        
+        animation: revolve 100s infinite;
+        animation-timing-function: linear;
     }
     .footer {
         position: fixed;
@@ -42,6 +54,7 @@
         right: 0;
         padding-right: 10px;
         text-align: right;
+        z-index: 1;
     }
     .coming-soon {
         font-size: 2em;
@@ -51,6 +64,7 @@
         color: crimson;
         margin-bottom: 0.2em;
         text-shadow: 2px 2px 5px #0d0d3a;
+        animation: blink 4s alternate infinite;
     }
     .coming-soon span {
         display: inline-block;
@@ -76,6 +90,19 @@
         .coming-soon {
             font-size: 4em;
             color: #9e0321;
+        }
+    }
+    @keyframes revolve {
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+    @keyframes blink {
+        10%, 12%, 16% {
+            text-shadow: 2px 2px 5px crimson;
+        }
+        0%, 14%, 20%, 100% {
+            text-shadow: 2px 2px 5px #0d0d3a;
         }
     }
     </style>
